@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>Тут подаемся</h2>
+    <form method="post" enctype="multipart/form-data" action="{% url 'form_create' %}">
+        <p>Анкета</p>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">ОТПРАВИТЬ АНКЕТУ</button>
+    </form>
+{% endblock content %}

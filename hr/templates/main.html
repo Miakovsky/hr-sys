@@ -1,0 +1,7 @@
+{% extends 'index.html' %}
+{% load static %}    
+
+{% block content %}
+    <h2>Подайте анкету в нашу прекрасную компанию!!</h2>
+    <a href="{% url 'application_form' %}"><button>ПОДАТЬ АНКЕТУ</button></a>
+{% endblock content %}
