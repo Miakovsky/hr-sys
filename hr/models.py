@@ -37,7 +37,7 @@ class Application(models.Model):
         verbose_name_plural = 'Анкеты'
 
     def __str__(self):
-        return self.email
+        return f"{self.last_name} {self.first_name}"
 
 class Job(models.Model):
     edu_level_choices = {
