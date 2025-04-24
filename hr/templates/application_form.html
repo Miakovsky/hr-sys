@@ -2,11 +2,71 @@
 {% load static %}
 
 {% block content %}
-    <h2>Тут подаемся</h2>
-    <form method="post" enctype="multipart/form-data" action="{% url 'form_create' %}">
-        <p>Анкета</p>
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">ОТПРАВИТЬ АНКЕТУ</button>
-    </form>
+<section class="section" id="anketa">
+    <div class="container d-flex relative">
+        <div class="shadow bg-indigo-950 d-flex flex-column form-layout">
+            <form method="post" enctype="multipart/form-data" action="{% url 'form_create' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="last_name" class="form-label text-white">Фамилия</label>
+                    {{form.last_name}}
+                </div>
+                <div class="mb-3">
+                    <label for="first_name" class="form-label text-white">Имя</label>
+                    {{form.first_name}}
+                </div>
+                <div class="mb-3">
+                    <label for="patronim" class="form-label text-white">Отчество</label>
+                    {{form.patronim}}
+                </div>
+                <div class="mb-3">
+                    <label for="date_of_birth" class="form-label text-white">Дата рождения</label>
+                    {{form.date_of_birth}}
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label text-white">Пол</label>
+                    {{form.gender}}
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label text-white">Телефон</label>
+                    {{form.phone}}
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label text-white">Электронная почта</label>
+                    {{form.email}}
+                </div>
+                <div class="mb-3">
+                    <label for="citizenship" class="form-label text-white">Гражданство</label>
+                    {{form.citizenship}}
+                </div>
+                <div class="mb-3">
+                    <label for="education_level" class="form-label text-white">Образование</label>
+                    {{form.education_level}}
+                </div>
+                <div class="mb-3">
+                    <label for="education_details" class="form-label text-white">Специальность</label>
+                    {{form.education_details}}
+                </div>
+                <div class="mb-3">
+                    <label for="skills" class="form-label text-white">Профессиональные навыки</label>
+                    {{form.skills}}
+                </div>
+                <div class="mb-3">
+                    <label for="work_experience" class="form-label text-white">Опыт работы</label>
+                    {{form.work_experience}}
+                </div>
+                <div class="mb-3">
+                    <label for="additional_info" class="form-label text-white">Дополнительная информация</label>
+                    {{form.additional_info}}
+                </div>
+                <div class="mb-3">
+                    <label for="picture" class="form-label text-white">Загрузите фотографию</label>
+                    {{form.picture}}
+                </div>
+                <button type="submit">ОТПРАВИТЬ АНКЕТУ</button>
+            </form>
+        </div>
+    </div>
+</section>
+    
 {% endblock content %}

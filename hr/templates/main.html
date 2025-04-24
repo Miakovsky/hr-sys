@@ -2,6 +2,128 @@
 {% load static %}    
 
 {% block content %}
-    <h2>Подайте анкету в нашу прекрасную компанию!!</h2>
-    <a href="{% url 'application_form' %}"><button>ПОДАТЬ АНКЕТУ</button></a>
+<section class="hero" id="home">
+    <div class="hero-container container">
+        <div class="hero-content">
+            <h1 class="hero-title">Мы - студия разработки <b>игр</b>, где рождаются захватывающие миры и незабываемые игровые впечатления. Наша команда - это страсть, инновационные технологии и бесконечная креативность.</h1>
+            <div class="hero-action">
+                <a href="#anketa" class="hero-link link-primary">Отправить резюме</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="features">
+    <div class="container">
+        <div class="title-block">
+            <h2 class="title">Наши ключевые направления</h2>
+            <p class="title-bottom">Каждое направление нашей работы - это страсть к играм и профессиональный подход на всех этапах разработки. Мы создаём проекты, в которые сами готовы играть часами!</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="feat-card">
+                    <img src="./static/img/features/1.png" class="feat-icon" alt="design">
+                    <h4 class="feat-name">Мобильные игры</h4>
+                    <p class="feat-desc">Проекты с элементами стратегии, RPG или симуляторы.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feat-card">
+                    <img src="./static/img/features/2.png" class="feat-icon" alt="customize">
+                    <h4 class="feat-name">Десктопные игры</h4>
+                    <p class="feat-desc">Крупнобюджетные игры с высокой детализацией и глубоким сюжетом.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feat-card">
+                    <img src="./static/img/features/3.png" class="feat-icon" alt="responsive">
+                    <h4 class="feat-name">VR/AR-игры</h4>
+                    <p class="feat-desc">Игры с дополненной реальностью: хорроры, экшены, симуляторы.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="features">
+    <div class="container">
+        <div class="title-block" style="margin-bottom: 0;">
+            <h2 class="title">Стань частью нашей команды</h2>
+            <p class="title-bottom">Ты видишь игры не просто как код и графику, а как историю, атмосферу и эмоции? Тогда нам по пути! Присылай портфолио и резюме - давай сделаем следующий хит вместе.</p>
+        </div>
+    </div>
+</section>
+<section class="section" id="anketa">
+    <div class="container d-flex relative">
+        <div class="shadow bg-indigo-950 d-flex flex-column form-layout">
+            <h2 class="text-xl text-center">Заполни анкету</h2>
+            <form method="post" enctype="multipart/form-data" action="{% url 'form_create' %}" class="d-flex flex-column flex-1 justify-content-center">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="last_name" class="form-label text-white">Фамилия</label>
+                    {{form.last_name}}
+                </div>
+                <div class="mb-3">
+                    <label for="first_name" class="form-label text-white">Имя</label>
+                    {{form.first_name}}
+                </div>
+                <div class="mb-3">
+                    <label for="patronim" class="form-label text-white">Отчество</label>
+                    {{form.patronim}}
+                </div>
+                <div class="mb-3">
+                    <label for="date_of_birth" class="form-label text-white">Дата рождения</label>
+                    {{form.date_of_birth}}
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label text-white">Пол</label>
+                    {{form.gender}}
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label text-white">Телефон</label>
+                    {{form.phone}}
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label text-white">Электронная почта</label>
+                    {{form.email}}
+                </div>
+                <div class="mb-3">
+                    <label for="citizenship" class="form-label text-white">Гражданство</label>
+                    {{form.citizenship}}
+                </div>
+                <div class="mb-3">
+                    <label for="education_level" class="form-label text-white">Образование</label>
+                    {{form.education_level}}
+                </div>
+                <div class="mb-3">
+                    <label for="education_details" class="form-label text-white">Специальность</label>
+                    {{form.education_details}}
+                </div>
+                <div class="mb-3">
+                    <label for="skills" class="form-label text-white">Профессиональные навыки</label>
+                    {{form.skills}}
+                </div>
+                <div class="mb-3">
+                    <label for="work_experience" class="form-label text-white">Опыт работы</label>
+                    {{form.work_experience}}
+                </div>
+                <div class="mb-3">
+                    <label for="additional_info" class="form-label text-white">Дополнительная информация</label>
+                    {{form.additional_info}}
+                </div>
+                <div class="mb-3">
+                    <label for="picture" class="form-label text-white">Загрузите фотографию</label>
+                    {{form.picture}}
+                </div>
+                <div class="mb-3 form-check">
+                    <label class="form-check-label text-white" for="exampleCheck">Отправляя анкету, вы соглашаетесь на</label>
+                    <a href="file/PD.txt" target="_blank" class="text-sm no-underline text-cyan-400 hover:text-cyan-500">обработку и передачу персональных данных</a>
+                </div>
+                <div class="text-center mt-3">
+                    <button type="input" class="hero-link link-primary w-full">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock content %}

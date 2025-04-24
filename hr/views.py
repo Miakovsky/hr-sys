@@ -3,8 +3,8 @@ from django.views.decorators.http import require_POST
 from .forms import *
 
 def main(request):
-    context = {}
-    return render(request, 'main.html')
+    form = ApplicationForm()
+    return render(request, 'main.html', {'form': form})
 
 def application_form(request):
     form = ApplicationForm()
@@ -16,7 +16,7 @@ def form_create(request):
         if form.is_valid():
             form.save()
 
-            return render(request, 'success.html', {})
+            return redirect('success')
         else:
             print(form.errors.as_data())
             return render(request, 'application_form.html', {'form': form})
@@ -25,5 +25,4 @@ def form_create(request):
         return render(request, 'application_form.html', {'form': form})
     
 def success(request):
-    context = {}
     return render(request, 'success.html')
